@@ -29,11 +29,12 @@ initialModel =
     , { url = "/2022/04/23/20/51/nature-7152461_960_720.jpg" }  
     ]
 
-main = view initialModel
-
 -- VIEW
 
 urlPrefix = "https://cdn.pixabay.com/photo"
+
+viewThumbnail thumb =
+    img [ src (urlPrefix ++ thumb.url) ] []
 
 view model = 
     div [ class "content" ]
@@ -41,5 +42,4 @@ view model =
         , div [ id "thumbnails" ] (List.map viewThumbnail model)
     ]
 
-viewThumbnail thumb =
-    img [ src (urlPrefix ++ thumb.url) ] []
+main = view initialModel
